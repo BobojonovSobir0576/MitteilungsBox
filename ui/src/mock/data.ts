@@ -1,5 +1,6 @@
-import MitteilungsboxLogo from '../assets/images/letter.png';
-import Schichtbuch from '../assets/images/logo_book_left.png';
+import MitteilungsboxLogo from '../assets/images/email.svg';
+import Schichtbuch from '../assets/images/logoEbook.svg';
+import Urlaubsantrag from '../assets/images/calendar.svg';
 
 export const data = [
   {
@@ -12,5 +13,5 @@ export const data = [
     link: '/send-message',
     logo: MitteilungsboxLogo,
   },
-  { text: 'Urlaubsantrag', link: '/', logo: 'No image' },
+  { text: 'Urlaubsantrag', link: '/', logo: Urlaubsantrag },
 ];
