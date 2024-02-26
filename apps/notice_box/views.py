@@ -50,8 +50,7 @@ class NoticeListView(APIView):
             email_body = (f"Data:\n"
                           f"Betreff: {instance.regarding} \n"
                           f"Namen angeben: {instance.full_name} \n"
-                          f"Mitteilung: {instance.notice} \n"
-                          f"Date time: {datetime.datetime.now()}")
+                          f"Mitteilung: {instance.notice} \n")
             email_data = {
                 "email_body": email_body,
                 "to_email": "amirbekazimov7@gmail.com",

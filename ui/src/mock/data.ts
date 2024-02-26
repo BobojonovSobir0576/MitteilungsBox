@@ -1,6 +1,6 @@
 import MitteilungsboxLogo from '../assets/images/email.svg';
 import Schichtbuch from '../assets/images/logoEbook.svg';
-import Urlaubsantrag from '../assets/images/calendar.svg';
+import Urlaubsantrag from '../assets/images/calendarImage.svg';
 
 export const data = [
   {

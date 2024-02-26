@@ -3,14 +3,13 @@ import { Form, Navbar } from 'react-bootstrap';
 
 import { useNavigate } from 'react-router-dom';
 
-import letterImage from '../assets/images/letter.png';
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { postNotice } from '../services/notice/notice';
 import { clearInputs } from '../utils';
 
+import letterImage from '../assets/images/email.svg';
 import logo from '../assets/images/KTB_Logo_rigth.png';
 
 const NoticeBox = () => {
@@ -63,23 +62,23 @@ const NoticeBox = () => {
         <div className='d-flex align-items-center justify-content-between'>
           <div className='d-flex gap-3'>
             <img width={75} src={letterImage} alt='' />
-            <div className='d-flex align-items-center  gap-5'>
+            <div className='d-flex align-items-center text-align-center '>
               <h1>||</h1>
-              <h3>Mitteilungsbox</h3>
+              <h3 className='fs-1'>Mitteilungsbox</h3>
               <h1>||</h1>
             </div>
           </div>
-          <img width={130} src={logo} alt='' />
+          <img width={160} src={logo} alt='' />
         </div>
 
-        <Navbar bg='primary' variant='dark'>
+        <Navbar className='bg-blue mt-2' variant='dark'>
           <Navbar.Toggle />
           <Navbar.Collapse className='justify-content-start p-3'></Navbar.Collapse>
         </Navbar>
 
         {showCurrent && (
           <div className='mt-4'>
-            <Form onSubmit={handleSubmit} className='mt-2 p-2'>
+            <Form onSubmit={handleSubmit} className='mt-2 '>
               <div className='border border-primary'>
                 <div className='bg-secondary w-100 p-3'>
                   <i className='text-light'>
@@ -101,46 +100,48 @@ const NoticeBox = () => {
                 </div>
               </div>
 
-              <Form.Group
-                className='mb-3'
-                controlId='exampleForm.ControlTextarea2'
-              >
-                <Form.Label className='fw-bold'>
-                  Möchten Sie Ihren Namen angeben?
-                </Form.Label>
-                <div>
-                  <Form.Check
-                    type='radio'
-                    id='radio-yes'
-                    label='Ja'
-                    name='nameChoice'
-                    value='yes'
-                    className='me-3'
-                    onChange={handleRadioChange}
-                  />
-                  <Form.Check
-                    type='radio'
-                    id='radio-no'
-                    label='Nein'
-                    name='nameChoice'
-                    value='no'
-                    onChange={handleRadioChange}
-                  />
-                </div>
-              </Form.Group>
-
-              {showNameInput && (
+              <div className='border border-primary my-2 p-2'>
                 <Form.Group
                   className='mb-3'
-                  controlId='exampleForm.ControlTextarea3'
+                  controlId='exampleForm.ControlTextarea2'
                 >
-                  <Form.Label className='fw-bold'>Name</Form.Label>
-                  <Form.Control
-                    value={full_name}
-                    onChange={(e) => setFullName(e.target.value)}
-                  />
+                  <Form.Label className='fw-bold'>
+                    Möchten Sie Ihren Namen angeben?
+                  </Form.Label>
+                  <div>
+                    <Form.Check
+                      type='radio'
+                      id='radio-yes'
+                      label='Ja'
+                      name='nameChoice'
+                      value='yes'
+                      className='me-3'
+                      onChange={handleRadioChange}
+                    />
+                    <Form.Check
+                      type='radio'
+                      id='radio-no'
+                      label='Nein'
+                      name='nameChoice'
+                      value='no'
+                      onChange={handleRadioChange}
+                    />
+                  </div>
                 </Form.Group>
-              )}
+
+                {showNameInput && (
+                  <Form.Group
+                    className='mb-3'
+                    controlId='exampleForm.ControlTextarea3'
+                  >
+                    <Form.Label className='fw-bold'>Name</Form.Label>
+                    <Form.Control
+                      value={full_name}
+                      onChange={(e) => setFullName(e.target.value)}
+                    />
+                  </Form.Group>
+                )}
+              </div>
 
               <div className='p-2 border border-primary'>
                 <Form.Group
@@ -150,6 +151,7 @@ const NoticeBox = () => {
                   <Form.Label className='fw-bold'>Mitteilung</Form.Label>
                   <Form.Control
                     value={notice}
+                    rows={6}
                     onChange={(e) => setNotice(e.target.value)}
                     as='textarea'
                   />
@@ -160,13 +162,13 @@ const NoticeBox = () => {
                 <button
                   onClick={cancel}
                   type='button'
-                  className='btn btn-primary text-black fw-bold'
+                  className='btn btn-primary text-white fw-bold'
                 >
                   Abbrechen
                 </button>
                 <button
                   type='submit'
-                  className='btn btn-primary text-black fw-bold'
+                  className='btn btn-primary text-white fw-bold'
                 >
                   Seichern
                 </button>
